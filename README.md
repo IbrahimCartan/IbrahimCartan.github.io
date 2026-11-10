@@ -12,8 +12,9 @@ Open http://localhost:8500.
 
 ## Files
 
-- `index.html`: all content. Two halves: the left (name, a clickable contents list for About Me / Education / Projects, and Contact docked at the bottom) stays in place while the right (About Me, Education, then the projects with short descriptions, tags, links and an expandable "Screenshots and what I learned" section) scrolls. On narrow screens the halves stack.
+- `index.html`: all content. Two halves: the left (name, a clickable contents list for About Me / Education / Projects, and Contact docked at the bottom) stays in place while the right (About Me, Education, then the four strongest projects with short descriptions, tags, links and an expandable "Screenshots and what I learned" section) scrolls. On narrow screens the halves stack.
 - `styles.css`: layout and light/dark themes (follows the system setting; the toggle saves a choice).
+- `projects.html`: the full project list (linked from the bottom of the home page's Projects), including older projects.
 - `script.js`: theme toggle, image galleries, copy-email button, and highlighting the current section in the contents list.
 - `images/`: project screenshots and illustrations. `doses-demo/`: web replica of the Doses iPhone app.
 
