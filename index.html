@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ibrahim Cartan · Software Developer Portfolio</title>
-  <meta name="description" content="Ibrahim Cartan, Computer Science student at the University of Washington. Projects: an AI GitHub code reviewer, an iPhone medication reminder app and a Discord music bot.">
+  <meta name="description" content="Ibrahim Cartan, Computer Science and Systems student at the University of Washington. Projects: an AI GitHub code reviewer, an iPhone medication reminder app and a Discord music bot.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%231f5eff'/><text x='16' y='22' font-family='Arial' font-weight='700' font-size='15' text-anchor='middle' fill='white'>IC</text></svg>">
   <script>
     // Apply saved theme before paint to avoid a flash.
@@ -34,13 +34,13 @@
   <main id="main">
     <section class="hero" id="top">
       <div class="wrap">
-        <p class="eyebrow">Computer Science · University of Washington</p>
+        <p class="eyebrow">Computer Science &amp; Systems · University of Washington</p>
         <h1>Ibrahim Cartan</h1>
         <p class="lead">I build practical software people actually use: an AI code reviewer, an iPhone reminder app for my mom and a Discord music bot.</p>
         <div class="actions">
           <a class="btn primary" href="#projects">View projects</a>
           <a class="btn" href="#contact">Contact me</a>
-          <a class="btn" href="resume.pdf" id="resume-link" data-placeholder="true">Resume (PDF)</a>
+          <a class="btn" href="resume.pdf" id="resume-link" data-placeholder="true" target="_blank" rel="noopener">Resume (PDF)</a>
           <a class="btn ghost" href="https://github.com/IbrahimCart" target="_blank" rel="noopener">GitHub</a>
           <a class="btn ghost" href="https://www.linkedin.com/in/ibrahimcartan/" target="_blank" rel="noopener">LinkedIn</a>
         </div>
@@ -50,7 +50,7 @@
     <section class="section" id="about">
       <div class="wrap narrow">
         <h2>About</h2>
-        <p>I'm a Computer Science student at the University of Washington. I like building tools that solve a real, specific problem for a real person, and I use AI coding assistants as part of how I work, while checking what they produce myself.</p>
+        <p>I'm a Computer Science and Systems student at the University of Washington, with a minor in Business Administration. I like building tools that solve a real, specific problem for a real person, and I use AI coding assistants as part of how I work, while checking what they produce myself.</p>
         <p>The projects below come from my TCSS 490 course (Generative AI and Software Development). Each one includes what I learned from it, including what went wrong.</p>
       </div>
     </section>
@@ -58,7 +58,7 @@
     <section class="section alt" id="projects">
       <div class="wrap">
         <h2>Projects</h2>
-        <p class="section-intro">Three case studies, strongest first. Each links to the source code.</p>
+        <p class="section-intro">Three case studies, strongest first, followed by a team project and my portfolio sites.</p>
 
         <!-- AI Code Reviewer -->
         <article class="project" id="ai-code-reviewer">
@@ -141,6 +141,12 @@
         <h3 class="more-title">Also</h3>
         <div class="cards">
           <article class="card">
+            <h4>Autonomous Drone Security Monitoring System</h4>
+            <p>A team project: a Java application that simulates autonomous drones, tracks their telemetry (location, altitude, speed, heading, battery) and flags anomalies such as sudden GPS jumps, unsafe movement and low battery, with a monitoring dashboard and a database of detected issues. We worked in an Agile team. I contributed to the MVC architecture, telemetry generation, anomaly detection, SQLite integration, the dashboard, JUnit tests and documentation.</p>
+            <ul class="tags"><li>Java</li><li>SQLite</li><li>JUnit</li><li>Maven</li><li>YouTrack</li></ul>
+            <p class="links"><a class="btn small" href="https://github.com/IbrahimCart/Portfolio" target="_blank" rel="noopener">Project overview</a></p>
+          </article>
+          <article class="card">
             <h4>Portfolio and AI log</h4>
             <p>My course portfolio, built as a small video-game world in plain HTML, CSS and JavaScript on GitHub Pages with no framework. Islands, bridges and cards are generated from one data file. I rebuilt it from a card grid one request at a time, and learned that describing exactly what was off worked much better than asking for something new from scratch.</p>
             <ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>SVG</li><li>WebGL</li></ul>
@@ -163,10 +169,10 @@
         <h2>Skills and technologies</h2>
         <p class="section-intro">Technologies I have used in the projects above.</p>
         <div class="skills">
-          <div><h3>Languages</h3><ul class="tags"><li>Python</li><li>Swift</li><li>JavaScript</li><li>HTML</li><li>CSS</li></ul></div>
-          <div><h3>Frameworks and APIs</h3><ul class="tags"><li>SwiftUI</li><li>discord.py</li><li>Spotify API</li><li>WebGL</li><li>SVG</li></ul></div>
-          <div><h3>Tools</h3><ul class="tags"><li>Git</li><li>GitHub CLI</li><li>GitHub Pages</li><li>FFmpeg</li><li>yt-dlp</li></ul></div>
-          <div><h3>AI-assisted development</h3><ul class="tags"><li>Claude Code</li><li>Headless <code>claude -p</code></li><li>Output validation</li></ul></div>
+          <div><h3>Languages</h3><ul class="tags"><li>Java</li><li>Python</li><li>Swift</li><li>JavaScript</li><li>HTML/CSS</li><li>SQL (SQLite)</li></ul></div>
+          <div><h3>Frameworks and APIs</h3><ul class="tags"><li>SwiftUI</li><li>discord.py</li><li>Spotify Web API</li><li>REST APIs</li><li>WebGL</li></ul></div>
+          <div><h3>Tools</h3><ul class="tags"><li>Git and GitHub</li><li>GitHub CLI</li><li>Maven</li><li>JUnit</li><li>Xcode</li><li>FFmpeg</li><li>YouTrack</li></ul></div>
+          <div><h3>Practices</h3><ul class="tags"><li>Object-oriented design</li><li>MVC</li><li>Unit testing</li><li>Agile/Scrum</li><li>User interviews</li><li>AI-assisted development (Claude Code)</li></ul></div>
         </div>
       </div>
     </section>
@@ -175,9 +181,13 @@
       <div class="wrap narrow">
         <h2>Education</h2>
         <div class="edu">
-          <h3>University of Washington</h3>
-          <p>Computer Science</p>
-          <p class="muted">Current coursework: TCSS 490, Generative AI and Software Development (Autumn 2026). <span class="todo">[Placeholder: add degree, expected graduation date and GPA if you want them shown.]</span></p>
+          <div class="edu-row"><h3>University of Washington</h3><span class="muted">Expected Jun 2027</span></div>
+          <p>B.S., Computer Science and Systems · Minor in Business Administration</p>
+          <p class="muted">Current coursework: TCSS 490, Generative AI and Software Development (Autumn 2026).</p>
+        </div>
+        <div class="edu">
+          <div class="edu-row"><h3>South Seattle College</h3><span class="muted">Jun 2023</span></div>
+          <p>Associate's, Computer Science and Systems</p>
         </div>
       </div>
     </section>
@@ -198,7 +208,7 @@
             <li><a href="https://github.com/IbrahimCart" target="_blank" rel="noopener">GitHub <span>github.com/IbrahimCart</span></a></li>
             <li><a href="https://www.linkedin.com/in/ibrahimcartan/" target="_blank" rel="noopener">LinkedIn <span>linkedin.com/in/ibrahimcartan</span></a></li>
             <li><a href="https://app.joinhandshake.com/profiles/any5za" target="_blank" rel="noopener">Handshake <span>View my profile</span></a></li>
-            <li><a href="resume.pdf" data-placeholder="true">Resume <span>PDF <em class="todo">[placeholder: add resume.pdf]</em></span></a></li>
+            <li><a href="resume.pdf" data-placeholder="true" target="_blank" rel="noopener">Resume <span>One-page PDF</span></a></li>
           </ul>
         </div>
       </div>

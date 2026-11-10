@@ -145,8 +145,11 @@ dd { margin: 2px 0 0; }
   .project { padding: 20px 16px; }
   .cards { grid-template-columns: 1fr; }
 }
-@media (max-width: 420px) { .site-header nav a[href="#skills"] { display: none; } }
+@media (max-width: 420px) { .site-header nav a[href="#skills"], .site-header nav a[href="#education"] { display: none; } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 [hidden] { display: none !important; }
 .brand { white-space: nowrap; }
 a[aria-disabled="true"] { pointer-events: none; opacity: .75; }
+.edu + .edu { margin-top: 22px; padding-top: 22px; border-top: 1px solid var(--border); }
+.edu-row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 4px; }
+.edu p { margin-bottom: 4px; }

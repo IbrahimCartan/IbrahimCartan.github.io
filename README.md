@@ -17,13 +17,17 @@ Open http://localhost:8500.
 - `script.js`: theme toggle, image galleries, copy-email button, resume-link check.
 - `images/`: project screenshots and illustrations. `doses-demo/`: web replica of the Doses iPhone app.
 
-## Placeholders to fill in
+## Resume
 
-- **Resume:** add `resume.pdf` at the repo root. The Resume buttons appear/activate automatically once it exists.
-- **Education:** `index.html` has a marked placeholder for degree, expected graduation and GPA.
-- **More projects:** a marked placeholder card under "Also" is reserved for the final project.
+`resume.pdf` is the public copy linked from the site (no phone number). The source and the full version with the phone number live in `private/`, which is git-ignored and never published. To rebuild after editing `private/resume.html`:
 
-Search `index.html` for `todo` to find them.
+```bash
+C="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+"$C" --headless=new --no-pdf-header-footer --print-to-pdf="$PWD/resume.pdf" "file://$PWD/private/resume.html?web"
+"$C" --headless=new --no-pdf-header-footer --print-to-pdf="$PWD/private/Ibrahim Cartan.pdf" "file://$PWD/private/resume.html"
+```
+
+A marked placeholder card under "Also" is reserved for the final project; search `index.html` for `todo`.
 
 ## Deploy (GitHub Pages)
 
