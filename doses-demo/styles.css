@@ -1,0 +1,177 @@
+/* Doses demo. The phone matches the app: a white page, one green, soft grey cards. */
+:root {
+  --green: #178556;
+  --green-dark: #11693f;
+  --card: #f3f3f3;
+  --ink: #111;
+  --muted: #6b6b6b;
+  --red: #c62828;
+  --orange: #b45309;
+  --page: #10131a;
+  --panel: #181c25;
+  --panel-border: #2b3240;
+  --page-text: #e8eaed;
+  --page-muted: #a1a7b3;
+  --phone-scale: 1; /* set by app.js: the inverse of the browser zoom, so the phone never changes size */
+}
+* { box-sizing: border-box; }
+html { color-scheme: dark; }
+body {
+  margin: 0; background: var(--page); color: var(--page-text);
+  font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif;
+}
+a { color: #7fd6ac; }
+button, input, textarea { font: inherit; }
+:focus-visible { outline: 3px solid #7fd6ac; outline-offset: 2px; }
+
+/* Page chrome */
+/* One grid: the header and demo clock stack on the left, the phone sits beside them from the top of the page. */
+.demo-head { grid-area: head; }
+.demo-head .back { display: inline-block; margin-bottom: 8px; font-size: 14px; }
+.demo-head h1 { margin: 0 0 6px; font-size: 28px; }
+.demo-head h1 span { font-size: 15px; font-weight: 500; color: var(--page-muted); margin-left: 8px; }
+.demo-head p { margin: 0; color: var(--page-muted); font-size: 14px; max-width: 70ch; }
+
+.stage {
+  display: grid; grid-template-columns: minmax(260px, 360px) calc(384px * var(--phone-scale)); grid-template-rows: auto 1fr;
+  grid-template-areas: "head phone" "controls phone"; column-gap: 40px; row-gap: 18px;
+  justify-content: center; align-items: start; max-width: 900px; margin: 0 auto; padding: 20px 16px;
+}
+
+.controls { grid-area: controls; background: var(--panel); border: 1px solid var(--panel-border); border-radius: 14px; padding: 16px; }
+.controls h2 { margin: 0 0 4px; font-size: 16px; }
+.clock { margin: 0; font-size: 22px; font-weight: 700; color: #fff; }
+.hint { margin: 6px 0 10px; font-size: 13px; color: var(--page-muted); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0; }
+.chips button {
+  background: #232a38; color: var(--page-text); border: 1px solid var(--panel-border);
+  border-radius: 999px; padding: 6px 12px; font-size: 14px; cursor: pointer;
+}
+.chips button:hover { background: #2c3546; }
+.chips button.accent { background: var(--green); border-color: var(--green); color: #fff; font-weight: 600; }
+.chips button.accent:hover { background: var(--green-dark); }
+.time-set { display: block; margin: 10px 0 4px; font-size: 14px; color: var(--page-muted); }
+.time-set input { margin-left: 8px; background: #232a38; color: var(--page-text); border: 1px solid var(--panel-border); border-radius: 8px; padding: 4px 8px; }
+
+/* Phone */
+/* iPhone 17 Pro Max: 440 x 956 pt screen, titanium frame, Dynamic Island, side buttons, status bar, home indicator */
+.phone {
+  position: relative; width: 384px; padding: 4px; border-radius: 56px;
+  background: linear-gradient(135deg, #5a6578 0%, #2b3342 18%, #1b212d 50%, #333d4f 82%, #626d80 100%);
+  box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, .28), inset 0 0 0 3px rgba(0, 0, 0, .35), 0 24px 60px rgba(0, 0, 0, .55);
+  color: var(--ink); color-scheme: light; zoom: var(--phone-scale);
+}
+.bezel { background: #000; border-radius: 52px; padding: 4px; }
+/* The phone keeps its shape at every width: JS sets zoom so it shrinks to fit instead of changing design. */
+.phone-wrap { grid-area: phone; justify-self: center; align-self: start; width: calc(384px * var(--phone-scale)); max-width: 100%; }
+.display { position: relative; aspect-ratio: 440 / 956; border-radius: 48px; overflow: hidden; background: #fff; display: flex; flex-direction: column; }
+.hw { position: absolute; width: 3px; border-radius: 2px; background: linear-gradient(90deg, #4a5468, #1d2431); }
+.hw.action { left: -2px; top: 128px; height: 30px; }
+.hw.vol-up { left: -2px; top: 186px; height: 58px; }
+.hw.vol-down { left: -2px; top: 258px; height: 58px; }
+.hw.power { right: -2px; top: 222px; height: 94px; background: linear-gradient(270deg, #4a5468, #1d2431); }
+.hw.camera { right: -2px; top: 530px; height: 62px; background: linear-gradient(270deg, #4a5468, #1d2431); }
+.island { position: absolute; z-index: 6; top: 11px; left: 50%; width: 118px; height: 34px; transform: translateX(-50%); background: #000; border-radius: 20px; }
+.island::after { content: ""; position: absolute; right: 12px; top: 11px; width: 12px; height: 12px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #2b3a63, #0a0d18 60%); }
+.statusbar { position: relative; z-index: 5; flex: none; height: 54px; padding: 16px 30px 0 36px; display: flex; justify-content: space-between; align-items: flex-start; font-weight: 600; font-size: 16px; background: #fff; }
+.statusbar .sys { display: flex; gap: 6px; align-items: center; margin-top: 3px; }
+.statusbar svg { height: 12px; width: auto; fill: #000; }
+.home-indicator { flex: none; height: 22px; background: #fff; display: grid; place-items: center; }
+.home-indicator::after { content: ""; width: 134px; height: 5px; border-radius: 3px; background: #000; opacity: .9; }
+.screen { flex: 1; min-height: 0; overflow-y: auto; padding: 8px 16px 12px; background: #fff; }
+.screen h1.title { margin: 6px 0 14px; font-size: 32px; letter-spacing: -.5px; }
+.screen h3.section { margin: 18px 0 8px 12px; font-size: 13px; font-weight: 600; text-transform: uppercase; color: var(--muted); letter-spacing: .3px; }
+.foot { margin: 8px 12px 0; font-size: 12.5px; color: var(--muted); }
+
+.card { background: var(--card); border-radius: 18px; padding: 16px; margin-bottom: 16px; }
+.card h2 { margin: 0; font-size: 26px; line-height: 1.15; }
+.card .row { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.card .time { font-size: 19px; }
+.status { margin: 8px 0 12px; font-size: 18px; }
+.s-taken { color: var(--green); } .s-takenLate { color: var(--orange); }
+.s-due, .s-missed { color: var(--red); } .s-upcoming { color: var(--muted); }
+.card .label { margin: 0; font-size: 17px; font-weight: 700; }
+.card .value { margin: 2px 0 0; font-size: 18px; }
+.empty { color: var(--muted); font-size: 18px; padding: 8px 4px 16px; }
+
+.btn-big {
+  width: 100%; min-height: 62px; border: 0; border-radius: 999px; background: var(--green); color: #fff;
+  font-size: 20px; font-weight: 700; cursor: pointer;
+}
+.btn-big:hover:not(:disabled) { background: var(--green-dark); }
+.btn-big:disabled { background: #e0e0e0; color: #9a9a9a; cursor: not-allowed; }
+.link { background: none; border: 0; padding: 4px 0; font-size: 17px; cursor: pointer; color: var(--green); }
+.link.danger { color: var(--red); }
+.undo { width: 100%; min-height: 44px; border: 1.5px solid var(--red); border-radius: 12px; background: #fff; color: var(--red); font-size: 16px; font-weight: 600; cursor: pointer; }
+
+/* List rows (History and Settings) */
+.list { background: var(--card); border-radius: 16px; overflow: hidden; }
+.list > * { padding: 12px 14px; }
+.list > * + * { border-top: 1px solid #dedede; }
+.list .li { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.list .li small { display: block; color: var(--muted); font-size: 14px; }
+.list .li .name { font-weight: 600; font-size: 17px; }
+.list .add { color: var(--green); background: none; border: 0; width: 100%; text-align: left; font-size: 17px; cursor: pointer; }
+.row-btn { background: none; border: 0; padding: 0; text-align: left; color: inherit; cursor: pointer; flex: 1; }
+.mark { width: 24px; height: 24px; border-radius: 50%; display: inline-grid; place-items: center; font-size: 14px; font-weight: 700; color: #fff; flex: none; }
+.m-taken { background: var(--green); } .m-takenLate { background: var(--orange); }
+.m-missed { background: var(--red); } .m-upcoming, .m-due { background: #bdbdbd; }
+
+.switch { position: relative; width: 52px; height: 32px; border-radius: 999px; border: 0; background: #cfcfcf; cursor: pointer; flex: none; }
+.switch::after { content: ""; position: absolute; top: 3px; left: 3px; width: 26px; height: 26px; border-radius: 50%; background: #fff; transition: transform .15s; }
+.switch[aria-checked="true"] { background: var(--green); }
+.switch[aria-checked="true"]::after { transform: translateX(20px); }
+.list .li.grace { display: block; }
+.grace-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.grace-field { display: flex; align-items: center; gap: 16px; margin-top: 10px; font-size: 17px; }
+.grace-field .pair { display: inline-flex; align-items: center; gap: 8px; }
+.grace-input { width: 52px; padding: 6px 8px; border: 1px solid #c4c4c4; border-radius: 8px; background: #fff; color: var(--ink); text-align: center; font-size: 17px; }
+.stepper { display: inline-flex; background: #e6e6e6; border-radius: 10px; overflow: hidden; }
+.stepper button { width: 44px; height: 34px; border: 0; background: none; font-size: 20px; cursor: pointer; }
+.stepper button + button { border-left: 1px solid #cfcfcf; }
+.stepper button:disabled { color: #aaa; cursor: not-allowed; }
+.privacy { background: var(--card); border-radius: 16px; padding: 14px; margin-top: 16px; font-size: 14px; }
+
+/* Tab bar */
+.tabs { display: flex; justify-content: space-around; padding: 6px 10px 2px; background: #fff; border-top: 1px solid #ececec; }
+.tabs button { flex: 1; background: none; border: 0; border-radius: 14px; padding: 6px 0 4px; color: #444; cursor: pointer; font-size: 11px; font-weight: 600; display: grid; justify-items: center; gap: 2px; }
+.tabs svg { width: 26px; height: 26px; fill: currentColor; stroke: currentColor; }
+.tabs button[aria-current="page"] { color: var(--green); background: #eef6f1; }
+
+/* Sample reminder banner */
+.banner { position: absolute; z-index: 7; top: 56px; left: 10px; right: 10px; background: rgba(40, 40, 44, .96); color: #fff; border-radius: 20px; padding: 12px 14px; box-shadow: 0 8px 24px rgba(0, 0, 0, .35); }
+.banner .top { display: flex; align-items: center; gap: 8px; font-size: 12px; color: #c9c9cf; }
+.banner .app { width: 20px; height: 20px; border-radius: 5px; background: var(--green); display: inline-block; }
+.banner h4 { margin: 6px 0 0; font-size: 16px; }
+.banner p { margin: 2px 0 8px; font-size: 14px; color: #e0e0e5; }
+.banner .acts { display: flex; gap: 8px; }
+.banner button { flex: 1; border: 0; border-radius: 10px; padding: 8px; font-weight: 600; cursor: pointer; background: #55555c; color: #fff; }
+.banner button.go { background: var(--green); }
+
+/* Dialogs */
+dialog { border: 0; border-radius: 16px; padding: 18px; width: min(92vw, 380px); background: #fff; color: var(--ink); color-scheme: light; }
+dialog::backdrop { background: rgba(0, 0, 0, .55); }
+dialog h2 { margin: 0 0 12px; font-size: 20px; }
+dialog label { display: block; margin: 10px 0; font-size: 14px; color: var(--muted); }
+dialog input, dialog textarea { display: block; width: 100%; margin-top: 4px; padding: 10px 12px; border: 1px solid #d0d0d0; border-radius: 10px; background: var(--card); color: var(--ink); }
+dialog pre { max-height: 50vh; overflow: auto; background: var(--card); border-radius: 10px; padding: 12px; font-size: 13px; white-space: pre-wrap; }
+.dialog-actions { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-end; margin-top: 14px; }
+.dialog-actions button { border: 1px solid #d0d0d0; background: #fff; border-radius: 10px; padding: 8px 14px; cursor: pointer; }
+.dialog-actions .primary { background: var(--green); border-color: var(--green); color: #fff; font-weight: 600; }
+.dialog-actions .danger { color: var(--red); margin-right: auto; }
+
+#confetti { position: fixed; inset: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 50; }
+.noscript { padding: 16px; text-align: center; }
+
+/* The layout stacks below this width (clock + phone no longer fit side by side): put the app first. */
+/* Too narrow to sit side by side: one column, header, then the phone, then the demo clock. */
+@media (max-width: 760px) {
+  .stage { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto; grid-template-areas: "head" "phone" "controls"; row-gap: 16px; justify-items: center; }
+  .demo-head, .controls { width: 100%; max-width: 560px; }
+}
+@media (max-width: 520px) {
+  .stage { padding: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .switch::after { transition: none; }
+}
