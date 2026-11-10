@@ -40,7 +40,7 @@
   var copy = document.getElementById("copy-email");
   copy.addEventListener("click", function () {
     var text = document.getElementById("email-text").textContent.trim();
-    function done() { copy.textContent = "Copied"; setTimeout(function () { copy.textContent = "Copy email"; }, 1800); }
+    function done() { copy.textContent = "Copied"; setTimeout(function () { copy.textContent = "Copy"; }, 1800); }
     if (navigator.clipboard) navigator.clipboard.writeText(text).then(done, function () {});
     else {
       var r = document.createRange(); r.selectNodeContents(document.getElementById("email-text"));
@@ -49,16 +49,20 @@
     }
   });
 
-  // Resume: if resume.pdf has not been added yet, hide the hero button and mark the contact entry
-  fetch("resume.pdf", { method: "HEAD" }).then(function (r) {
-    if (!r.ok) throw 0;
-  }).catch(function () {
-    var hero = document.getElementById("resume-link");
-    if (hero) hero.hidden = true;
-    document.querySelectorAll('a[data-placeholder="true"]').forEach(function (a) {
-      a.removeAttribute("href"); a.setAttribute("aria-disabled", "true");
-    });
-  });
+  // Contents list: highlight the section currently on screen
+  var links = {};
+  document.querySelectorAll(".toc a").forEach(function (a) { links[a.getAttribute("href").slice(1)] = a; });
+  var sections = Object.keys(links).map(function (id) { return document.getElementById(id); });
+  function setCurrent() {
+    var line = window.innerHeight * 0.3, current = sections[0];
+    sections.forEach(function (sec) { if (sec.getBoundingClientRect().top <= line) current = sec; });
+    // At the very bottom of the page, the last section is current
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) current = sections[sections.length - 1];
+    Object.keys(links).forEach(function (id) { links[id].setAttribute("aria-current", id === current.id ? "true" : "false"); });
+  }
+  window.addEventListener("scroll", setCurrent, { passive: true });
+  window.addEventListener("resize", setCurrent);
+  setCurrent();
 
   document.getElementById("year").textContent = new Date().getFullYear();
 })();

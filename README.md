@@ -12,9 +12,9 @@ Open http://localhost:8500.
 
 ## Files
 
-- `index.html`: all content (hero, about, projects as case studies, skills, education, contact).
+- `index.html`: all content. Two halves: the left (name, a clickable contents list for About Me / Education / Projects, and Contact docked at the bottom) stays in place while the right (About Me, Education, then the projects with short descriptions, tags, links and an expandable "Screenshots and what I learned" section) scrolls. On narrow screens the halves stack.
 - `styles.css`: layout and light/dark themes (follows the system setting; the toggle saves a choice).
-- `script.js`: theme toggle, image galleries, copy-email button, resume-link check.
+- `script.js`: theme toggle, image galleries, copy-email button, and highlighting the current section in the contents list.
 - `images/`: project screenshots and illustrations. `doses-demo/`: web replica of the Doses iPhone app.
 
 ## Resume
@@ -26,8 +26,6 @@ C="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 "$C" --headless=new --no-pdf-header-footer --print-to-pdf="$PWD/resume.pdf" "file://$PWD/private/resume.html?web"
 "$C" --headless=new --no-pdf-header-footer --print-to-pdf="$PWD/private/Ibrahim Cartan.pdf" "file://$PWD/private/resume.html"
 ```
-
-A marked placeholder card under "Also" is reserved for the final project; search `index.html` for `todo`.
 
 ## Deploy (GitHub Pages)
 
