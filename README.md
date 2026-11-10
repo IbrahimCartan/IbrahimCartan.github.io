@@ -1,6 +1,6 @@
 # Ibrahim Cartan: portfolio
 
-A professional portfolio for job applications. Plain HTML, CSS and JavaScript: no framework, no build step. It carries over the content of my TCSS 490 course portfolio (https://ibrahimcart.github.io, which stays untouched) in a conventional style.
+A professional portfolio for job applications, live at https://ibrahimcartan.github.io. Plain HTML, CSS and JavaScript: no framework, no build step. It carries over the content of my TCSS 490 course portfolio (https://ibrahimcart.github.io, which stays untouched) in a conventional style.
 
 ## Run locally
 
@@ -27,4 +27,4 @@ Search `index.html` for `todo` to find them.
 
 ## Deploy (GitHub Pages)
 
-Not published yet. A `<username>.github.io` repo or any repo with Pages set to the `main` branch root works; no build is needed. All links are relative.
+Live at **https://ibrahimcartan.github.io**. The repo is `IbrahimCartan/IbrahimCartan.github.io` (owned by the IbrahimCartan organization so it gets its own root URL). Pages serves the `main` branch root, so pushing to `main` deploys; there is no build step.
