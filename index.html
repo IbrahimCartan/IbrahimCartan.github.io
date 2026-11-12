@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ibrahim Cartan · Software Developer Portfolio</title>
   <meta name="description" content="Ibrahim Cartan, Computer Science and Systems student at the University of Washington. Projects: an AI GitHub code reviewer, an iPhone medication reminder app, a Discord music bot and more.">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%231f5eff'/><text x='16' y='22' font-family='Arial' font-weight='700' font-size='15' text-anchor='middle' fill='white'>IC</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%231a4d8f'/><text x='16' y='22' font-family='Arial' font-weight='700' font-size='15' text-anchor='middle' fill='white'>IC</text></svg>">
   <script>
     // Apply saved theme before paint to avoid a flash.
     try { var t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
@@ -107,10 +107,10 @@
           <summary>Screenshots and what I learned</summary>
           <div class="details-body">
             <div class="gallery" data-gallery>
-              <figure class="slide active"><img src="images/review-real-pr.jpg" alt="Real screenshot of two review comments posted by the tool on a GitHub pull request: a critical SQL injection finding and a medium finding about a connection that is never closed" loading="lazy"><figcaption>Real screenshot: the tool's review on a practice pull request, including a critical SQL injection finding.</figcaption></figure>
-              <figure class="slide"><img src="images/review-terminal.svg" alt="Mockup of a terminal running ai-review on a pull request and listing findings by severity" loading="lazy"><figcaption>Illustration: one command reviews a PR and lists what it found.</figcaption></figure>
-              <figure class="slide"><img src="images/review-checks.svg" alt="Mockup of the review checks list showing dropped, moved and kept model findings" loading="lazy"><figcaption>Illustration: my code drops or fixes anything the model got wrong.</figcaption></figure>
-              <figure class="slide"><img src="images/review-architecture.svg" alt="Diagram showing which steps the model handles and which are plain code" loading="lazy"><figcaption>Illustration: the model reviews, my code does everything else.</figcaption></figure>
+              <figure class="slide active"><img src="images/review-terminal.jpg" alt="Terminal running python3 -m reviewer --pr 1: it fetches the pull request, skips the lockfile, asks Claude to review two files, and prints Changes requested with seven findings, two critical, two high and three medium, starting with SQL injection, path traversal and a hardcoded API key" loading="lazy"><figcaption>Real output from a run on November 12, 2026: one command reviewed the pull request in 14 seconds and found 7 problems.</figcaption></figure>
+              <figure class="slide"><img src="images/review-summary.jpg" alt="Real screenshot of the review the tool posted on a GitHub pull request: the heading AI Code Review, Changes requested, a short summary, and three findings rated critical, medium and low, each with a file and line and a suggested fix" loading="lazy"><figcaption>Real screenshot: the review the tool posted on a practice pull request, with three findings ranked by severity.</figcaption></figure>
+              <figure class="slide"><img src="images/review-real-pr.jpg" alt="Real screenshot of two review comments posted by the tool on a GitHub pull request: a critical SQL injection finding and a medium finding about a connection that is never closed" loading="lazy"><figcaption>Real screenshot: each finding is also posted as an inline comment on the exact line.</figcaption></figure>
+              <figure class="slide"><img src="images/review-tests.jpg" alt="Real screenshot of the Suggested tests checklist at the end of the review, with four test cases, and a footer saying the review took 10.3 seconds" loading="lazy"><figcaption>Real screenshot: it suggests test cases for the change. The whole review took 10.3 seconds.</figcaption></figure>
             </div>
             <p><strong>What I learned:</strong> keeping the model's job small, one call with no tools, made it easy to tell whether a bad review was the model's fault or my code's. Structured output was not enough on its own: the model can return valid JSON that points at a line that does not exist, so the checks mattered as much as the prompt.</p>
           </div>
@@ -152,14 +152,8 @@
           <a href="https://github.com/IbrahimCart/discord-music-bot" target="_blank" rel="noopener">Source ↗</a>
         </p>
         <details>
-          <summary>Screenshots and what I learned</summary>
+          <summary>What I learned</summary>
           <div class="details-body">
-            <div class="gallery" data-gallery>
-              <figure class="slide active"><img src="images/play-song.svg" alt="Mockup of the /play command answered with a Now playing message" loading="lazy"><figcaption>Illustration: /play with a song name starts playback.</figcaption></figure>
-              <figure class="slide"><img src="images/spotify.svg" alt="Mockup of a Spotify playlist link being queued" loading="lazy"><figcaption>Illustration: paste a Spotify playlist and it queues every track.</figcaption></figure>
-              <figure class="slide"><img src="images/queue.svg" alt="Mockup of the /queue command listing upcoming songs" loading="lazy"><figcaption>Illustration: /queue shows what's playing and what's next.</figcaption></figure>
-              <figure class="slide"><img src="images/controls.svg" alt="Mockup of the /skip and /pause commands" loading="lazy"><figcaption>Illustration: /skip, /pause, /resume and /stop control playback.</figcaption></figure>
-            </div>
             <p><strong>What I learned:</strong> Spotify audio cannot be streamed, so the bot has to find the same song on YouTube, and early versions often played the wrong version. I made it prefer saying it could not find a song over playing the wrong one, and match tracks by length. I also learned to test AI-written changes in Discord myself before pushing them.</p>
           </div>
         </details>
