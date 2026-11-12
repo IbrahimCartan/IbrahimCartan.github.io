@@ -26,18 +26,28 @@
 
     <div class="project-grid">
     <article class="project">
-      <p class="kicker">Developer tool · AI</p>
-      <h3>AI GitHub Code Reviewer</h3>
-      <p class="project-meta">Autumn 2026 · Solo</p>
+      <header class="project-head">
+        <span class="thumb" style="--icon: url(images/thumbs/code-reviewer.svg)" aria-hidden="true"></span>
+        <div>
+          <p class="kicker">Developer tool · AI</p>
+          <h3>AI GitHub Code Reviewer</h3>
+          <p class="project-meta">Autumn 2026 · Solo</p>
+        </div>
+      </header>
       <p>A command-line tool that reviews a GitHub pull request or git diff with Claude Code running headless, reports bugs, security problems and missing tests, and posts them as inline comments on the PR. My own code checks every finding against the diff and drops any that cite a file or line that was never shown.</p>
       <ul class="tags" aria-label="Built with"><li>Python</li><li>Claude Code</li><li>GitHub CLI</li><li>Git</li></ul>
       <p class="links"><a href="https://github.com/IbrahimCart/ai-code-reviewer" target="_blank" rel="noopener">Source ↗</a></p>
     </article>
 
     <article class="project">
-      <p class="kicker">iPhone app · Built for a real user</p>
-      <h3>Doses: medication reminders</h3>
-      <p class="project-meta">Autumn 2026 · Solo</p>
+      <header class="project-head">
+        <span class="thumb" style="--icon: url(images/thumbs/doses.svg)" aria-hidden="true"></span>
+        <div>
+          <p class="kicker">iPhone app · Built for a real user</p>
+          <h3>Doses: medication reminders</h3>
+          <p class="project-meta">Autumn 2026 · Solo</p>
+        </div>
+      </header>
       <p>An iPhone app I built for my mom, who takes medication twice a day. I interviewed her first, then built it around her answers: one reminder that gets firmer if she misses a dose, a clear sign of whether she already took it, and a history she can show her doctor. Nothing leaves the phone, and the logic is covered by 20 unit tests.</p>
       <ul class="tags" aria-label="Built with"><li>Swift</li><li>SwiftUI</li><li>iOS</li><li>Unit testing</li></ul>
       <p class="links">
@@ -47,18 +57,28 @@
     </article>
 
     <article class="project">
-      <p class="kicker">Discord bot</p>
-      <h3>Discord Music Bot</h3>
-      <p class="project-meta">Autumn 2026 · Solo</p>
+      <header class="project-head">
+        <span class="thumb" style="--icon: url(images/thumbs/music-bot.svg)" aria-hidden="true"></span>
+        <div>
+          <p class="kicker">Discord bot</p>
+          <h3>Discord Music Bot</h3>
+          <p class="project-meta">Autumn 2026 · Solo</p>
+        </div>
+      </header>
       <p>A bot that plays music in Discord voice channels through slash commands (/play, /skip, /pause, /resume, /queue, /stop). It searches YouTube with a SoundCloud fallback, turns Spotify tracks and playlists into playable queues, and prefetches the next song for faster starts. Runs on macOS and Windows.</p>
       <ul class="tags" aria-label="Built with"><li>Python</li><li>discord.py</li><li>yt-dlp</li><li>Spotify Web API</li><li>FFmpeg</li></ul>
       <p class="links"><a href="https://github.com/IbrahimCart/discord-music-bot" target="_blank" rel="noopener">Source ↗</a></p>
     </article>
 
     <article class="project">
-      <p class="kicker">Team project</p>
-      <h3>Autonomous Drone Security Monitoring System</h3>
-      <p class="project-meta">Agile team project</p>
+      <header class="project-head">
+        <span class="thumb" style="--icon: url(images/thumbs/drone.svg)" aria-hidden="true"></span>
+        <div>
+          <p class="kicker">Team project</p>
+          <h3>Autonomous Drone Security Monitoring System</h3>
+          <p class="project-meta">Agile team project</p>
+        </div>
+      </header>
       <p>A Java application that simulates autonomous drones, tracks their telemetry (location, altitude, speed, heading, battery) and flags anomalies such as sudden GPS jumps, unsafe movement and low battery, with a monitoring dashboard. I worked on the MVC architecture, telemetry generation, anomaly detection, SQLite integration, the dashboard and JUnit tests.</p>
       <ul class="tags" aria-label="Built with"><li>Java</li><li>SQLite</li><li>JUnit</li><li>Maven</li><li>MVC</li></ul>
       <p class="links">
@@ -67,9 +87,14 @@
     </article>
 
     <article class="project">
-      <p class="kicker">Websites</p>
-      <h3>Portfolio Websites</h3>
-      <p class="project-meta">Autumn 2026 · Solo</p>
+      <header class="project-head">
+        <span class="thumb" style="--icon: url(images/thumbs/websites.svg)" aria-hidden="true"></span>
+        <div>
+          <p class="kicker">Websites</p>
+          <h3>Portfolio Websites</h3>
+          <p class="project-meta">Autumn 2026 · Solo</p>
+        </div>
+      </header>
       <p>This site, and my course portfolio: an interactive video-game world where every project is an island, with a WebGL globe, all generated from one data file. Both are plain HTML, CSS and JavaScript on GitHub Pages, with no framework, and I documented how I used AI to build them in a public prompt log.</p>
       <ul class="tags" aria-label="Built with"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>SVG</li><li>WebGL</li><li>GitHub Pages</li></ul>
       <p class="links">
@@ -80,17 +105,27 @@
     </article>
 
     <article class="project">
-      <p class="kicker">Java application</p>
-      <h3>Student Record Management System</h3>
-      <p class="project-meta">September 2021</p>
+      <header class="project-head">
+        <span class="thumb" style="--icon: url(images/thumbs/student-records.svg)" aria-hidden="true"></span>
+        <div>
+          <p class="kicker">Java application</p>
+          <h3>Student Record Management System</h3>
+          <p class="project-meta">September 2021</p>
+        </div>
+      </header>
       <p>A Java application that stores student records in files and finds them by ID or name using Java collections. Input validation and exception handling keep it from crashing on invalid entries, missing files or badly formatted data, and the code is split into separate classes for student information, file operations and user interaction.</p>
       <ul class="tags" aria-label="Built with"><li>Java</li><li>File I/O</li><li>Exception handling</li><li>OOP</li></ul>
     </article>
 
     <article class="project">
-      <p class="kicker">Java application</p>
-      <h3>Task Management Console Application</h3>
-      <p class="project-meta">April 2021</p>
+      <header class="project-head">
+        <span class="thumb" style="--icon: url(images/thumbs/tasks.svg)" aria-hidden="true"></span>
+        <div>
+          <p class="kicker">Java application</p>
+          <h3>Task Management Console Application</h3>
+          <p class="project-meta">April 2021</p>
+        </div>
+      </header>
       <p>A menu-driven Java command-line app for creating, viewing, updating and deleting tasks, built with encapsulated, modular classes. I debugged issues with user input, task updates and list management to make it reliable.</p>
       <ul class="tags" aria-label="Built with"><li>Java</li><li>CLI</li><li>CRUD</li><li>OOP</li></ul>
     </article>
