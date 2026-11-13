@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ibrahim Cartan · Software Developer Portfolio</title>
-  <meta name="description" content="Ibrahim Cartan, Computer Science and Systems student at the University of Washington. Projects: an AI GitHub code reviewer, an iPhone medication reminder app, a Discord music bot and more.">
+  <meta name="description" content="Ibrahim Cartan, Computer Science and Systems student at the University of Washington. Projects: an AI GitHub code reviewer, a Roku app for YouTube and Twitch, an iPhone medication reminder app and more.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%231b5bc6'/><text x='16' y='22' font-family='Arial' font-weight='700' font-size='15' text-anchor='middle' fill='white'>IC</text></svg>">
   <script>
     // Apply saved theme before paint to avoid a flash.
@@ -139,6 +139,29 @@
 
       <article class="project">
         <header class="project-head">
+          <span class="thumb" style="--icon: url(images/thumbs/threepeat.svg)" aria-hidden="true"></span>
+          <div>
+            <p class="kicker">Roku TV app · Used daily at home</p>
+            <h3>ThreePeat Media Player</h3>
+          </div>
+        </header>
+        <p>A Roku app I built to watch YouTube and Twitch in one place on my TV, signed in to my own accounts, with Twitch chat beside the stream. It signs in like the official TV apps (a code on the TV, approved on a phone) and uses the YouTube Data and Twitch Helix APIs. A Python helper on my Mac finds streams with yt-dlp, caches lookups, merges duplicate requests and preloads the highlighted video so it starts sooner. I use it daily; playback relies on unofficial methods, so it is for personal use only.</p>
+        <ul class="tags" aria-label="Built with"><li>BrightScript</li><li>SceneGraph</li><li>Python</li><li>OAuth</li><li>REST APIs</li><li>yt-dlp</li></ul>
+        <p class="links">
+          <a href="https://github.com/IbrahimCart/ThreePeat-Media-Player" target="_blank" rel="noopener">Source ↗</a>
+        </p>
+        <details>
+          <summary>Screenshot</summary>
+          <div class="details-body">
+            <div class="gallery" data-gallery>
+              <figure class="slide active"><img src="images/threepeat-start.jpg" alt="Real screenshot of the ThreePeat start screen on a TV: the heading What are we watching? above a highlighted YouTube button and a Twitch button" loading="lazy"><figcaption>Real screenshot: the start screen, where you pick YouTube or Twitch.</figcaption></figure>
+            </div>
+          </div>
+        </details>
+      </article>
+
+      <article class="project">
+        <header class="project-head">
           <span class="thumb" style="--icon: url(images/thumbs/doses.svg)" aria-hidden="true"></span>
           <div>
             <p class="kicker">iPhone app · Built for a real user</p>
@@ -160,27 +183,6 @@
               <figure class="slide"><img src="images/doses-history.png" alt="Real screenshot of the Doses History screen showing a Morning dose on Nov 2 recorded late" loading="lazy"><figcaption>Real screenshot: History lists each dose and flags the late ones.</figcaption></figure>
             </div>
             <p><strong>What I learned:</strong> when I watched my mom use it, she tapped "I took it" by accident and could not see how to take it back, because the small red Undo text did not look like a button. I made it a full-width "Undo" button. Something that looks obvious to me is not obvious to others, so next time I would test with her from the start. She told me it helped her keep track of her doses and that the reminders came at the right times.</p>
-          </div>
-        </details>
-      </article>
-
-      <article class="project">
-        <header class="project-head">
-          <span class="thumb" style="--icon: url(images/thumbs/music-bot.svg)" aria-hidden="true"></span>
-          <div>
-            <p class="kicker">Discord bot</p>
-            <h3>Discord Music Bot</h3>
-          </div>
-        </header>
-        <p>A bot that plays music in Discord voice channels through slash commands (/play, /skip, /pause, /resume, /queue, /stop). It searches YouTube with a SoundCloud fallback, turns Spotify tracks and playlists into playable queues, and prefetches the next song for faster starts. Runs on macOS and Windows.</p>
-        <ul class="tags" aria-label="Built with"><li>Python</li><li>discord.py</li><li>yt-dlp</li><li>Spotify Web API</li><li>FFmpeg</li></ul>
-        <p class="links">
-          <a href="https://github.com/IbrahimCart/discord-music-bot" target="_blank" rel="noopener">Source ↗</a>
-        </p>
-        <details>
-          <summary>What I learned</summary>
-          <div class="details-body">
-            <p><strong>What I learned:</strong> Spotify audio cannot be streamed, so the bot has to find the same song on YouTube, and early versions often played the wrong version. I made it prefer saying it could not find a song over playing the wrong one, and match tracks by length. I also learned to test AI-written changes in Discord myself before pushing them.</p>
           </div>
         </details>
       </article>

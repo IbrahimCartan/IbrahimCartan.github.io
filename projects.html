@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>All Projects · Ibrahim Cartan</title>
-  <meta name="description" content="Every project by Ibrahim Cartan: an AI GitHub code reviewer, an iPhone medication reminder app, a Discord music bot, a drone monitoring system, portfolio websites and earlier Java applications.">
+  <meta name="description" content="Every project by Ibrahim Cartan: an AI GitHub code reviewer, a Roku app for YouTube and Twitch, an iPhone medication reminder app, a Discord music bot, a drone monitoring system, portfolio websites and earlier Java applications.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%231b5bc6'/><text x='16' y='22' font-family='Arial' font-weight='700' font-size='15' text-anchor='middle' fill='white'>IC</text></svg>">
   <script>
     try { var t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
@@ -41,6 +41,20 @@
 
     <article class="project">
       <header class="project-head">
+        <span class="thumb" style="--icon: url(images/thumbs/threepeat.svg)" aria-hidden="true"></span>
+        <div>
+          <p class="kicker">Roku TV app · Used daily at home</p>
+          <h3>ThreePeat Media Player</h3>
+          <p class="project-meta">Autumn 2026 · Solo</p>
+        </div>
+      </header>
+      <p>A Roku app I built to watch YouTube and Twitch in one place on my TV, signed in to my own accounts, with Twitch chat beside the stream. It signs in like the official TV apps (a code on the TV, approved on a phone) and uses the YouTube Data and Twitch Helix APIs. A Python helper on my Mac finds streams with yt-dlp, caches lookups, merges duplicate requests and preloads the highlighted video so it starts sooner. I use it daily; playback relies on unofficial methods, so it is for personal use only.</p>
+      <ul class="tags" aria-label="Built with"><li>BrightScript</li><li>SceneGraph</li><li>Python</li><li>OAuth</li><li>REST APIs</li><li>yt-dlp</li></ul>
+      <p class="links"><a href="https://github.com/IbrahimCart/ThreePeat-Media-Player" target="_blank" rel="noopener">Source ↗</a></p>
+    </article>
+
+    <article class="project">
+      <header class="project-head">
         <span class="thumb" style="--icon: url(images/thumbs/doses.svg)" aria-hidden="true"></span>
         <div>
           <p class="kicker">iPhone app · Built for a real user</p>
@@ -58,20 +72,6 @@
 
     <article class="project">
       <header class="project-head">
-        <span class="thumb" style="--icon: url(images/thumbs/music-bot.svg)" aria-hidden="true"></span>
-        <div>
-          <p class="kicker">Discord bot</p>
-          <h3>Discord Music Bot</h3>
-          <p class="project-meta">Autumn 2026 · Solo</p>
-        </div>
-      </header>
-      <p>A bot that plays music in Discord voice channels through slash commands (/play, /skip, /pause, /resume, /queue, /stop). It searches YouTube with a SoundCloud fallback, turns Spotify tracks and playlists into playable queues, and prefetches the next song for faster starts. Runs on macOS and Windows.</p>
-      <ul class="tags" aria-label="Built with"><li>Python</li><li>discord.py</li><li>yt-dlp</li><li>Spotify Web API</li><li>FFmpeg</li></ul>
-      <p class="links"><a href="https://github.com/IbrahimCart/discord-music-bot" target="_blank" rel="noopener">Source ↗</a></p>
-    </article>
-
-    <article class="project">
-      <header class="project-head">
         <span class="thumb" style="--icon: url(images/thumbs/drone.svg)" aria-hidden="true"></span>
         <div>
           <p class="kicker">Team project</p>
@@ -84,6 +84,20 @@
       <p class="links">
         <a href="https://github.com/PNDubs/autonomous-drone-simulation" target="_blank" rel="noopener">Source (Team repo) ↗</a>
       </p>
+    </article>
+
+    <article class="project">
+      <header class="project-head">
+        <span class="thumb" style="--icon: url(images/thumbs/music-bot.svg)" aria-hidden="true"></span>
+        <div>
+          <p class="kicker">Discord bot</p>
+          <h3>Discord Music Bot</h3>
+          <p class="project-meta">Autumn 2026 · Solo</p>
+        </div>
+      </header>
+      <p>A bot that plays music in Discord voice channels through slash commands (/play, /skip, /pause, /resume, /queue, /stop). It searches YouTube with a SoundCloud fallback, turns Spotify tracks and playlists into playable queues, and prefetches the next song for faster starts. Runs on macOS and Windows.</p>
+      <ul class="tags" aria-label="Built with"><li>Python</li><li>discord.py</li><li>yt-dlp</li><li>Spotify Web API</li><li>FFmpeg</li></ul>
+      <p class="links"><a href="https://github.com/IbrahimCart/discord-music-bot" target="_blank" rel="noopener">Source ↗</a></p>
     </article>
 
     <article class="project">
