@@ -90,14 +90,14 @@
     steps[0].disabled = vState.index === 0;
     steps[1].disabled = vState.index === slides.length - 1;
     viewer.querySelector(".viewer-foot").hidden = slides.length < 2;
-    if (vState.gallery.showSlide) vState.gallery.showSlide(vState.index);
+    vState.gallery.showSlide(vState.index);
   }
   function openViewer(g, i) {
     if (!viewer) buildViewer();
     vState.gallery = g; vState.index = i;
     renderViewer();
     root.classList.add("viewer-open");
-    if (viewer.showModal) viewer.showModal(); else viewer.setAttribute("open", "");
+    viewer.showModal();
     viewer.querySelector(".viewer-close").focus({ focusVisible: false });
   }
   function stepViewer(d) {
@@ -106,8 +106,10 @@
     vState.index = next;
     renderViewer();
   }
+  // Unlock page scrolling here for the close button and outside clicks;
+  // the dialog's "close" listener above covers Esc
   function closeViewer() {
-    if (viewer.close) viewer.close(); else viewer.removeAttribute("open");
+    viewer.close();
     root.classList.remove("viewer-open");
   }
 
