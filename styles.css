@@ -112,7 +112,12 @@ p { margin: 0 0 1em; }
 .coursework { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--border); }
 .coursework-label { margin: 0 0 8px; font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
 .tags.course-tags li { background: var(--panel); color: var(--text); border: 1px solid var(--border); font-weight: 500; }
-.course-tags + .coursework-label { margin-top: 14px; }
+.course-tags + .coursework-label, .skills-card .tags + .coursework-label { margin-top: 14px; }
+/* Skills and Experience reuse the education card */
+.skills-card .tags { margin-bottom: 0; }
+.skills-note { margin: 16px 0 0; font-size: 14px; color: var(--muted); }
+.job-points { margin: 8px 0 0; padding-left: 1.2em; font-size: 15px; }
+.job-points li + li { margin-top: 4px; }
 .tags.course-tags:last-child { margin-bottom: 0; }
 .project { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 22px 24px; margin-bottom: 18px; box-shadow: var(--shadow); transition: border-color .15s; }
 .project:hover { border-color: color-mix(in srgb, var(--accent) 45%, var(--border)); }

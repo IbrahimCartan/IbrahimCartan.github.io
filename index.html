@@ -36,7 +36,9 @@
           <ul>
             <li><a href="#about"><span class="toc-line" aria-hidden="true"></span>About Me</a></li>
             <li><a href="#education"><span class="toc-line" aria-hidden="true"></span>Education</a></li>
+            <li><a href="#skills"><span class="toc-line" aria-hidden="true"></span>Skills</a></li>
             <li><a href="#projects"><span class="toc-line" aria-hidden="true"></span>Projects</a></li>
+            <li><a href="#experience"><span class="toc-line" aria-hidden="true"></span>Experience</a></li>
           </ul>
         </nav>
 
@@ -66,7 +68,7 @@
       </div>
     </aside>
 
-    <!-- Right half: About Me, Education and Projects; scrolls -->
+    <!-- Right half: About Me, Education, Skills, Projects and Experience; scrolls -->
     <main class="content" id="main">
       <section class="section" id="about" aria-labelledby="about-title">
         <h2 class="section-title" id="about-title">About Me</h2>
@@ -104,6 +106,23 @@
         <article class="edu-card">
           <div class="edu-row"><h3>South Seattle College</h3><span class="edu-date">Jun 2023</span></div>
           <p class="edu-degree">Associate's, Computer Science and Systems</p>
+        </article>
+      </section>
+
+      <section class="section" id="skills" aria-labelledby="skills-title">
+        <h2 class="section-title" id="skills-title">Skills</h2>
+        <article class="edu-card skills-card">
+          <p class="coursework-label">Languages</p>
+          <ul class="tags"><li>Java</li><li>Python</li><li>Swift</li><li>JavaScript</li><li>BrightScript</li><li>HTML/CSS</li><li>SQL (SQLite)</li></ul>
+          <p class="coursework-label">Frameworks &amp; tools</p>
+          <ul class="tags"><li>SwiftUI</li><li>Roku SceneGraph</li><li>Xcode</li><li>Git</li><li>GitHub</li><li>GitHub CLI</li><li>GitHub Pages</li><li>Maven</li><li>JUnit</li><li>discord.py</li><li>yt-dlp</li><li>FFmpeg</li><li>YouTrack</li><li>Epic</li></ul>
+          <p class="coursework-label">APIs &amp; AI</p>
+          <ul class="tags"><li>REST APIs</li><li>OAuth device sign-in</li><li>YouTube Data API</li><li>Twitch API</li><li>Spotify Web API</li><li>Claude Code</li></ul>
+          <p class="coursework-label">Practices</p>
+          <ul class="tags"><li>Object-oriented design</li><li>MVC</li><li>Unit testing</li><li>Agile/Scrum</li><li>Debugging</li><li>User interviews</li><li>AI-assisted development</li></ul>
+          <p class="coursework-label">Certifications</p>
+          <ul class="tags"><li>AMD ROCm AI Developer certification (in progress)</li></ul>
+          <p class="skills-note">Relevant coursework is listed under <a href="#education">Education</a>.</p>
         </article>
       </section>
 
@@ -151,7 +170,7 @@
           <a href="https://github.com/IbrahimCart/ThreePeat-Media-Player" target="_blank" rel="noopener">Source ↗</a>
         </p>
         <details>
-          <summary>Screenshots</summary>
+          <summary>Screenshots and challenges</summary>
           <div class="details-body">
             <div class="gallery" data-gallery>
               <figure class="slide active"><img src="images/threepeat/start-youtube.jpg" alt="Real screenshot of the ThreePeat start screen on a TV: the heading What are we watching? with the YouTube button highlighted in red and a Twitch button beside it" loading="lazy"><figcaption>Real screenshot from the TV: the start screen, with YouTube selected.</figcaption></figure>
@@ -159,6 +178,7 @@
               <figure class="slide"><img src="images/threepeat/search-results.jpg" alt="Real screenshot of YouTube search results for NASA in a 4 by 3 grid of thumbnails, each with a title, channel name and upload date" loading="lazy"><figcaption>Real screenshot: YouTube search results in a 4-by-3 grid, with channel names and upload dates.</figcaption></figure>
               <figure class="slide"><img src="images/threepeat/sidebar-menu.jpg" alt="Real screenshot of the YouTube sidebar open over the results, listing Home, Subscriptions, Search, History, Liked videos, Playlists and Sign out" loading="lazy"><figcaption>Real screenshot: the sidebar for moving between YouTube pages.</figcaption></figure>
             </div>
+            <p><strong>Challenges and how I solved them:</strong> YouTube's official API doesn't hand out video streams, and its stream links only work from the network that asked for them. I solved that with a small Python helper on the same home network that finds each stream with yt-dlp and passes it to the Roku. Fast scrolling could have started a lookup for every tile, so the helper caches results, lets duplicate requests share one lookup and runs at most two preloads at a time. And when the browser login it reads goes stale, it renews it and retries instead of showing an empty feed.</p>
           </div>
         </details>
       </article>
@@ -210,6 +230,35 @@
         <span class="all-projects-arrow" aria-hidden="true">→</span>
       </a>
       </section>
+
+      <section class="section" id="experience" aria-labelledby="experience-title">
+        <h2 class="section-title" id="experience-title">Experience</h2>
+        <article class="edu-card job">
+          <div class="edu-row"><h3>Conifer Health Solutions</h3><span class="edu-date">Mar 2023 – Present</span></div>
+          <p class="edu-degree">Patient Access Representative II</p>
+          <ul class="job-points"><li>Register and verify patient, insurance and demographic data in Epic while maintaining HIPAA-level confidentiality and accuracy.</li><li>Resolve patient questions and coordinate with clinical staff to keep front-end operations on schedule.</li></ul>
+        </article>
+        <article class="edu-card job">
+          <div class="edu-row"><h3>Enterprise Holdings</h3><span class="edu-date">Jan 2021 – Mar 2023</span></div>
+          <p class="edu-degree">Car Detailer</p>
+          <ul class="job-points"><li>Inspected vehicles before and after rentals, documenting damage and safety issues while meeting fast turnaround standards.</li></ul>
+        </article>
+        <article class="edu-card job">
+          <div class="edu-row"><h3>Allied Universal</h3><span class="edu-date">Jun 2020 – Jan 2021</span></div>
+          <p class="edu-degree">Security Officer</p>
+          <ul class="job-points"><li>Patrolled facilities, responded to incidents and wrote detailed reports for supervisors and emergency personnel; verified access credentials.</li></ul>
+        </article>
+        <article class="edu-card job">
+          <div class="edu-row"><h3>Som American Transport</h3><span class="edu-date">Jun 2019 – May 2020</span></div>
+          <p class="edu-degree">Truck Dispatcher</p>
+          <ul class="job-points"><li>Tracked driver routes and schedules across multiple locations in real time, resolving delays and logging delivery updates.</li></ul>
+        </article>
+        <a class="all-projects" href="resume.pdf" target="_blank" rel="noopener">
+          <span>Download my resume (PDF)</span>
+          <span class="all-projects-arrow" aria-hidden="true">↓</span>
+        </a>
+      </section>
+
 
       <p class="footnote">© <span id="year">2026</span> Ibrahim Cartan</p>
     </main>
