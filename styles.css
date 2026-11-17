@@ -65,11 +65,11 @@ p { margin: 0 0 1em; }
 .spacer, .spacer-fill { flex: 1 1 0; height: auto; min-height: 1.4em; }
 /* Contents list: a line that grows and lights up for the hovered or current section */
 .toc ul { list-style: none; margin: 0; padding: 0; }
-.toc li + li { margin-top: clamp(.5em, 1.6vh, 1em); }
-.toc a { display: inline-flex; align-items: center; gap: 1em; padding: .35em 0; color: var(--muted); text-decoration: none; font-size: .82em; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; }
-.toc-line { display: inline-block; width: 2.2em; height: 2px; background: currentColor; opacity: .5; transition: width .2s, opacity .2s; }
+.toc li + li { margin-top: clamp(.2em, .8vh, .5em); }
+.toc a { display: inline-flex; align-items: center; gap: .8em; padding: .25em 0; color: var(--muted); text-decoration: none; font-size: .7em; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; }
+.toc-line { display: inline-block; width: 1.8em; height: 2px; background: currentColor; opacity: .5; transition: width .2s, opacity .2s; }
 .toc a:hover, .toc a[aria-current="true"] { color: var(--text); }
-.toc a:hover .toc-line, .toc a[aria-current="true"] .toc-line { width: 4.4em; opacity: 1; }
+.toc a:hover .toc-line, .toc a[aria-current="true"] .toc-line { width: 3.6em; opacity: 1; }
 .toc a[aria-current="true"] .toc-line { background: var(--accent); }
 
 .theme-toggle { flex: none; width: 2.3em; height: 2.3em; border-radius: .5em; border: 1px solid var(--border); background: var(--surface); color: var(--text); cursor: pointer; display: grid; place-items: center; }
@@ -236,3 +236,9 @@ html.viewer-open { overflow: hidden; }
   .project-head .thumb::before { inset: 8px; }
 }
 @media (prefers-reduced-motion: reduce) { .project-head .thumb { transition: none; } .project:hover .project-head .thumb { transform: none; } }
+
+/* Clickable boxes get a soft blue glow on hover */
+.email-card, .contact-links a, .theme-toggle, .all-projects, .slide img, .viewer button { transition: border-color .15s, box-shadow .15s, color .15s, background-color .15s; }
+.email-card:hover, .contact-links a:hover, .theme-toggle:hover, .all-projects:hover, .slide img:hover, .viewer button:hover:not(:disabled) {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent), 0 0 16px color-mix(in srgb, var(--accent) 28%, transparent);
+}
