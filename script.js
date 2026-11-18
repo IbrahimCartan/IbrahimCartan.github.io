@@ -12,6 +12,25 @@
     try { localStorage.setItem("theme", next); } catch (e) {}
   });
 
+  // Put a small thumbnail of the first screenshot to the left of each "Screenshots ..." toggle
+  document.querySelectorAll("details").forEach(function (d) {
+    var sum = d.querySelector("summary"), first = d.querySelector("[data-gallery] .slide img");
+    if (!sum || !first) return;
+    d.classList.add("has-shots");
+    var label = sum.textContent.trim();
+    var thumb = document.createElement("img");
+    thumb.className = "sum-thumb";
+    thumb.src = first.getAttribute("src");
+    thumb.alt = "";
+    thumb.loading = "lazy";
+    var text = document.createElement("span");
+    text.className = "sum-label";
+    text.textContent = label;
+    sum.textContent = "";
+    sum.appendChild(thumb);
+    sum.appendChild(text);
+  });
+
   // Image galleries: one slide at a time, with left/right arrows over the screenshot,
   // dots below it, and the arrow keys (when the gallery has focus or the mouse is over it)
   var hovered = null;

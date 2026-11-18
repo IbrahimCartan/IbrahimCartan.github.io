@@ -260,3 +260,11 @@ html.viewer-open { overflow: hidden; }
   .gallery-arrow { opacity: 0; }
   .gallery:hover .gallery-arrow:not(:disabled), .gallery-arrow:focus-visible { opacity: .9; }
 }
+
+/* Screenshots toggle on project cards: green text with a small thumbnail of the first screenshot */
+details.has-shots > summary { display: flex; align-items: center; gap: 12px; list-style: none; color: var(--accent); font-weight: 700; }
+details.has-shots > summary::-webkit-details-marker { display: none; }
+details.has-shots > summary:hover { color: var(--accent); text-decoration: underline; }
+.sum-thumb { flex: none; width: 64px; height: 44px; object-fit: cover; object-position: top; border-radius: 7px; border: 1px solid var(--accent); background: #fff; }
+.sum-label::before { content: "\25B8\00a0"; }
+details.has-shots[open] .sum-label::before { content: "\25BE\00a0"; }
