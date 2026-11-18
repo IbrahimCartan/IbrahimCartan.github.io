@@ -9,7 +9,7 @@
   <script>
     try { var t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
   </script>
-  <link rel="stylesheet" href="styles.css?v=2026-11-18f">
+  <link rel="stylesheet" href="styles.css?v=2026-11-18i">
 </head>
 <body>
   <main class="page">
@@ -37,6 +37,19 @@
       <p>A command-line tool that reviews a GitHub pull request or git diff with Claude Code running headless, reports bugs, security problems and missing tests, and posts them as inline comments on the PR. My own code checks every finding against the diff and drops any that cite a file or line that was never shown.</p>
       <ul class="tags" aria-label="Built with"><li>Python</li><li>Claude Code</li><li>GitHub CLI</li><li>Git</li></ul>
       <p class="links"><a href="https://github.com/IbrahimCart/ai-code-reviewer" target="_blank" rel="noopener">Source ↗</a></p>
+
+        <details>
+          <summary>Screenshots and what I learned</summary>
+          <div class="details-body">
+            <div class="gallery" data-gallery>
+              <figure class="slide active"><img src="images/review-terminal.jpg" alt="Terminal running python3 -m reviewer --pr 1: it fetches the pull request, skips the lockfile, asks Claude to review two files, and prints Changes requested with seven findings, two critical, two high and three medium, starting with SQL injection, path traversal and a hardcoded API key" loading="lazy"><figcaption>Real output from a run on November 12, 2026: one command reviewed the pull request in 14 seconds and found 7 problems.</figcaption></figure>
+              <figure class="slide"><img src="images/review-summary.jpg" alt="Real screenshot of the review the tool posted on a GitHub pull request: the heading AI Code Review, Changes requested, a short summary, and three findings rated critical, medium and low, each with a file and line and a suggested fix" loading="lazy"><figcaption>Real screenshot: the review the tool posted on a practice pull request, with three findings ranked by severity.</figcaption></figure>
+              <figure class="slide"><img src="images/review-real-pr.jpg" alt="Real screenshot of two review comments posted by the tool on a GitHub pull request: a critical SQL injection finding and a medium finding about a connection that is never closed" loading="lazy"><figcaption>Real screenshot: each finding is also posted as an inline comment on the exact line.</figcaption></figure>
+              <figure class="slide"><img src="images/review-tests.jpg" alt="Real screenshot of the Suggested tests checklist at the end of the review, with four test cases, and a footer saying the review took 10.3 seconds" loading="lazy"><figcaption>Real screenshot: it suggests test cases for the change. The whole review took 10.3 seconds.</figcaption></figure>
+            </div>
+            <p><strong>What I learned:</strong> keeping the model's job small, one call with no tools, made it easy to tell whether a bad review was the model's fault or my code's. Structured output was not enough on its own: the model can return valid JSON that points at a line that does not exist, so the checks mattered as much as the prompt.</p>
+          </div>
+        </details>
     </article>
 
     <article class="project">
@@ -51,6 +64,19 @@
       <p>A Roku app I built to watch YouTube and Twitch in one place on my TV, signed in to my own accounts, with Twitch chat beside the stream. It signs in like the official TV apps (a code on the TV, approved on a phone) and uses the YouTube Data and Twitch Helix APIs. A Python helper on my Mac finds streams with yt-dlp, caches lookups, merges duplicate requests and preloads the highlighted video so it starts sooner. My mom and I use it at home; playback relies on unofficial methods, so it is for personal use only.</p>
       <ul class="tags" aria-label="Built with"><li>BrightScript</li><li>SceneGraph</li><li>Python</li><li>OAuth</li><li>REST APIs</li><li>yt-dlp</li></ul>
       <p class="links"><a href="https://github.com/IbrahimCart/ThreePeat-Media-Player" target="_blank" rel="noopener">Source ↗</a></p>
+
+        <details>
+          <summary>Screenshots and challenges</summary>
+          <div class="details-body">
+            <div class="gallery" data-gallery>
+              <figure class="slide active"><img src="images/threepeat/start-youtube.jpg" alt="Real screenshot of the ThreePeat start screen on a TV: the heading What are we watching? with the YouTube button highlighted in red and a Twitch button beside it" loading="lazy"><figcaption>Real screenshot from the TV: the start screen, with YouTube selected.</figcaption></figure>
+              <figure class="slide"><img src="images/threepeat/start-twitch.jpg" alt="Real screenshot of the same start screen with the Twitch button highlighted in purple" loading="lazy"><figcaption>Real screenshot: moving to Twitch changes the screen's color to match.</figcaption></figure>
+              <figure class="slide"><img src="images/threepeat/search-results.jpg" alt="Real screenshot of YouTube search results for NASA in a 4 by 3 grid of thumbnails, each with a title, channel name and upload date" loading="lazy"><figcaption>Real screenshot: YouTube search results in a 4-by-3 grid, with channel names and upload dates.</figcaption></figure>
+              <figure class="slide"><img src="images/threepeat/sidebar-menu.jpg" alt="Real screenshot of the YouTube sidebar open over the results, listing Home, Subscriptions, Search, History, Liked videos, Playlists and Sign out" loading="lazy"><figcaption>Real screenshot: the sidebar for moving between YouTube pages.</figcaption></figure>
+            </div>
+            <p><strong>Challenges and how I solved them:</strong> YouTube's official API doesn't hand out video streams, and its stream links only work from the network that asked for them. I solved that with a small Python helper on the same home network that finds each stream with yt-dlp and passes it to the Roku. Fast scrolling could have started a lookup for every tile, so the helper caches results, lets duplicate requests share one lookup and runs at most two preloads at a time. And when the browser login it reads goes stale, it renews it and retries instead of showing an empty feed.</p>
+          </div>
+        </details>
     </article>
 
     <article class="project">
@@ -68,6 +94,18 @@
         <a href="doses-demo/">Live demo ↗</a>
         <a href="https://github.com/IbrahimCart/dose-reminder" target="_blank" rel="noopener">Source ↗</a>
       </p>
+
+        <details>
+          <summary>Screenshots and what I learned</summary>
+          <div class="details-body">
+            <div class="gallery" data-gallery>
+              <figure class="slide active"><img src="images/doses-today.png" alt="Two real screenshots of the Doses Today screen: on the left a Morning card with a green I took it late button and an Evening card not yet due, on the right confetti falling across the whole screen after a dose was recorded" loading="lazy"><figcaption>Real screenshots: Today, with the green button, and the confetti that falls when a dose is recorded.</figcaption></figure>
+              <figure class="slide"><img src="images/doses-settings.png" alt="Two real screenshots of Doses: the Settings screen listing the Morning and Evening reminders with on/off switches and an Add a reminder button, and the editor for one reminder with a name, a time and a delete button" loading="lazy"><figcaption>Real screenshots: Settings lists the reminders, and the editor lets you rename, retime or delete one.</figcaption></figure>
+              <figure class="slide"><img src="images/doses-history.png" alt="Real screenshot of the Doses History screen showing a Morning dose on Nov 2 recorded late" loading="lazy"><figcaption>Real screenshot: History lists each dose and flags the late ones.</figcaption></figure>
+            </div>
+            <p><strong>What I learned:</strong> when I watched my mom use it, she tapped "I took it" by accident and could not see how to take it back, because the small red Undo text did not look like a button. I made it a full-width "Undo" button. Something that looks obvious to me is not obvious to others, so next time I would test with her from the start. She told me it helped her keep track of her doses and that the reminders came at the right times.</p>
+          </div>
+        </details>
     </article>
 
     <article class="project">
@@ -149,6 +187,6 @@
     <p class="footnote">© <span id="year">2026</span> Ibrahim Cartan</p>
   </main>
 
-  <script src="script.js?v=2026-11-18f"></script>
+  <script src="script.js?v=2026-11-18i"></script>
 </body>
 </html>

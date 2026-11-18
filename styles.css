@@ -57,20 +57,20 @@ p { margin: 0 0 1em; }
 }
 .intro-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 1em; margin-bottom: clamp(.08em, 1vh, .2em); }
 .eyebrow { color: var(--accent); font-weight: 600; font-size: .78em; letter-spacing: .06em; text-transform: uppercase; margin: 0 0 .6em; }
-.intro h1 { font-size: 3.2em; margin-bottom: clamp(.08em, 1vh, .2em); }
-.headshot { flex: none; width: 5.6em; height: 5.6em; margin: .3em 0 .2em .3em; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent); box-shadow: 0 0 0 4px var(--accent-soft); }
+.intro h1 { font-size: 2.9em; margin-bottom: clamp(.08em, 1vh, .2em); }
+.headshot { flex: none; width: 3.8em; height: 3.8em; margin: .15em 0 .1em .15em; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
 .lead { font-size: 1.15em; color: var(--muted); margin: 0; }
 .intro h2 { font-size: .76em; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: clamp(.8em, 1.6vh, 1.4em); }
 /* The two gaps around the contents list share the spare height equally,
    so the list sits exactly halfway between the name and Contact (docked at the bottom). */
-.spacer, .spacer-fill { flex: 1 1 0; height: auto; min-height: 1.4em; }
+.spacer, .spacer-fill { flex: 1 1 0; height: auto; min-height: .8em; }
 /* Contents list: a line that grows and lights up for the hovered or current section */
 .toc ul { list-style: none; margin: 0; padding: 0; }
-.toc li + li { margin-top: clamp(.2em, .8vh, .5em); }
-.toc a { display: inline-flex; align-items: center; gap: .8em; padding: .25em 0; color: var(--muted); text-decoration: none; font-size: .7em; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; }
-.toc-line { display: inline-block; width: 1.8em; height: 2px; background: currentColor; opacity: .5; transition: width .2s, opacity .2s; }
+.toc li + li { margin-top: clamp(.1em, .5vh, .3em); }
+.toc a { display: inline-flex; align-items: center; gap: .7em; padding: .2em 0; color: var(--muted); text-decoration: none; font-size: .62em; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; }
+.toc-line { display: inline-block; width: 1.5em; height: 2px; background: currentColor; opacity: .5; transition: width .2s, opacity .2s; }
 .toc a:hover, .toc a[aria-current="true"] { color: var(--text); }
-.toc a:hover .toc-line, .toc a[aria-current="true"] .toc-line { width: 3.6em; opacity: 1; }
+.toc a:hover .toc-line, .toc a[aria-current="true"] .toc-line { width: 3em; opacity: 1; }
 .toc a[aria-current="true"] .toc-line { background: var(--accent); }
 
 .theme-toggle { flex: none; width: 2.3em; height: 2.3em; border-radius: .5em; border: 1px solid var(--border); background: var(--surface); color: var(--text); cursor: pointer; display: grid; place-items: center; }
@@ -212,7 +212,7 @@ html.viewer-open { overflow: hidden; }
 /* All projects page */
 .page { max-width: 1240px; margin: 0 auto; padding: 48px clamp(24px, 4vw, 56px) 64px; }
 /* Two cards per row on wide screens, one on narrow ones; links sit at the bottom of each card */
-.project-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 460px), 1fr)); gap: 20px; align-items: stretch; }
+.project-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 460px), 1fr)); gap: 20px; align-items: start; }
 .project-grid .project { margin: 0; display: flex; flex-direction: column; }
 .project-grid .project > .links { margin-top: auto; padding-top: 4px; }
 .page-top { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 28px; }
