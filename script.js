@@ -12,23 +12,54 @@
     try { localStorage.setItem("theme", next); } catch (e) {}
   });
 
-  // Image galleries: one slide at a time with dots
+  // Image galleries: one slide at a time, with left/right arrows over the screenshot,
+  // dots below it, and the arrow keys (when the gallery has focus or the mouse is over it)
+  var hovered = null;
   document.querySelectorAll("[data-gallery]").forEach(function (g) {
     var slides = g.querySelectorAll(".slide");
-    var dots = [];
+    var dots = [], arrows = null, current = 0;
     function show(i) {
+      current = i;
       slides.forEach(function (s, n) { s.classList.toggle("active", n === i); });
       dots.forEach(function (d, n) { d.setAttribute("aria-current", n === i ? "true" : "false"); });
+      if (arrows) {
+        // Keep the arrows on the visible screenshot, and keep keyboard focus on one that moved
+        var shot = slides[i].querySelector(".shot"), had = document.activeElement;
+        if (arrows.parentNode !== shot) shot.appendChild(arrows);
+        arrows.firstChild.disabled = i === 0;
+        arrows.lastChild.disabled = i === slides.length - 1;
+        if (had && arrows.contains(had)) (had.disabled ? (i === 0 ? arrows.lastChild : arrows.firstChild) : had).focus();
+      }
+    }
+    function step(d) {
+      var next = current + d;
+      if (next >= 0 && next < slides.length) show(next);
     }
     g.showSlide = show;
+    g.stepSlide = step;
     slides.forEach(function (s, i) {
       var img = s.querySelector("img");
       if (img) {
         img.title = "Click to enlarge";
         img.addEventListener("click", function () { openViewer(g, i); });
+        var shot = document.createElement("div");
+        shot.className = "shot";
+        img.parentNode.insertBefore(shot, img);
+        shot.appendChild(img);
       }
     });
     if (slides.length < 2) return;
+    arrows = document.createElement("div");
+    arrows.className = "gallery-arrows";
+    [["prev", -1, "Previous screenshot", "M15 5l-7 7 7 7"], ["next", 1, "Next screenshot", "M9 5l7 7-7 7"]].forEach(function (a) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "gallery-arrow " + a[0];
+      b.setAttribute("aria-label", a[2]);
+      b.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="' + a[3] + '" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+      b.addEventListener("click", function () { step(a[1]); });
+      arrows.appendChild(b);
+    });
     var nav = document.createElement("div");
     nav.className = "gallery-nav";
     slides.forEach(function (_, i) {
@@ -39,7 +70,20 @@
       nav.appendChild(b); dots.push(b);
     });
     g.appendChild(nav);
+    g.addEventListener("mouseenter", function () { hovered = g; });
+    g.addEventListener("mouseleave", function () { if (hovered === g) hovered = null; });
     show(0);
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+    if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+    if (root.classList.contains("viewer-open")) return; // the viewer handles its own arrows
+    var el = document.activeElement;
+    if (el && (el.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(el.tagName))) return;
+    var g = (el && el.closest && el.closest("[data-gallery]")) || hovered;
+    if (!g || !g.stepSlide || g.querySelectorAll(".slide").length < 2) return;
+    e.preventDefault();
+    g.stepSlide(e.key === "ArrowLeft" ? -1 : 1);
   });
 
   // Enlarged viewer: a large card that fits the whole screenshot on screen,
