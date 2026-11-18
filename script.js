@@ -167,4 +167,27 @@
 
   var year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
+  // Small glow that follows the mouse and fades out when it stops (mouse and trackpad only, off for reduced motion)
+  if (window.matchMedia("(hover: hover) and (pointer: fine)").matches &&
+      !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    var glow = document.createElement("div");
+    glow.className = "cursor-glow";
+    glow.setAttribute("aria-hidden", "true");
+    document.body.appendChild(glow);
+    var x = 0, y = 0, queued = false, fade;
+    document.addEventListener("pointermove", function (e) {
+      x = e.clientX; y = e.clientY;
+      glow.classList.add("on");
+      clearTimeout(fade);
+      fade = setTimeout(function () { glow.classList.remove("on"); }, 500);
+      if (!queued) {
+        queued = true;
+        requestAnimationFrame(function () {
+          glow.style.transform = "translate(" + x + "px, " + y + "px)";
+          queued = false;
+        });
+      }
+    });
+    document.documentElement.addEventListener("pointerleave", function () { glow.classList.remove("on"); });
+  }
 })();
