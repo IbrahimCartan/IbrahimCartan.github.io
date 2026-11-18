@@ -55,9 +55,10 @@ p { margin: 0 0 1em; }
   display: flex; flex-direction: column; justify-content: center;
   padding: clamp(1em, 3.6vh, 3em) clamp(32px, 5.5vw, 96px); max-width: 720px; margin: 0 auto;
 }
-.intro-top { display: flex; justify-content: space-between; align-items: center; gap: 1em; margin-bottom: clamp(.08em, 1vh, .2em); }
+.intro-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 1em; margin-bottom: clamp(.08em, 1vh, .2em); }
 .eyebrow { color: var(--accent); font-weight: 600; font-size: .78em; letter-spacing: .06em; text-transform: uppercase; margin: 0 0 .6em; }
 .intro h1 { font-size: 3.2em; margin-bottom: clamp(.08em, 1vh, .2em); }
+.headshot { flex: none; width: 5.6em; height: 5.6em; margin: .3em 0 .2em .3em; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent); box-shadow: 0 0 0 4px var(--accent-soft); }
 .lead { font-size: 1.15em; color: var(--muted); margin: 0; }
 .intro h2 { font-size: .76em; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: clamp(.8em, 1.6vh, 1.4em); }
 /* The two gaps around the contents list share the spare height equally,

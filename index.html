@@ -10,7 +10,7 @@
     // Apply saved theme before paint to avoid a flash.
     try { var t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
   </script>
-  <link rel="stylesheet" href="styles.css?v=2026-11-18">
+  <link rel="stylesheet" href="styles.css?v=2026-11-18b">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -22,12 +22,13 @@
         <header class="intro-head">
         <p class="eyebrow">Computer Science &amp; Systems · University of Washington</p>
         <div class="intro-top">
-          <h1>Ibrahim Cartan</h1>
+          <img class="headshot" src="images/headshot.jpg" alt="Photo of Ibrahim Cartan" width="480" height="480">
           <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch color theme">
             <svg class="i-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M20 15.5A8.5 8.5 0 0 1 8.5 4a8.5 8.5 0 1 0 11.5 11.5z"/></svg>
             <svg class="i-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9 7 7M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"/></g></svg>
           </button>
         </div>
+        <h1>Ibrahim Cartan</h1>
         <p class="lead">I build practical software people actually use.</p>
         </header>
         <div class="spacer" aria-hidden="true"></div>
@@ -74,7 +75,7 @@
         <h2 class="section-title" id="about-title">About Me</h2>
         <div class="about">
           <p>I'm a Computer Science and Systems student at the University of Washington, minoring in Business Administration and graduating in June 2027.</p>
-          <p>I like building tools that solve a real problem for a real person. Before writing any code for Doses, I asked my mom what she needed, then watched her use it and fixed what confused her. I use AI coding assistants like Claude Code to build faster, and I check what they produce.</p>
+          <p>I like building software that solves real problems, from an AI code reviewer for GitHub pull requests to a media player and an iPhone app. I start from what the people using it actually need, and I keep improving it once they try it. I use AI coding assistants like Claude Code to build faster, and I check what they produce.</p>
           <p>Alongside school, I work as a Patient Access Representative at Conifer Health Solutions, handling patient and insurance data in Epic. I'm looking for a software development internship where I can keep building useful things.</p>
         </div>
       </section>
@@ -264,6 +265,6 @@
     </main>
   </div>
 
-  <script src="script.js?v=2026-11-18"></script>
+  <script src="script.js?v=2026-11-18b"></script>
 </body>
 </html>
