@@ -268,3 +268,5 @@ details.has-shots > summary:hover { color: var(--accent); text-decoration: under
 .sum-thumb { flex: none; width: 64px; height: 44px; object-fit: cover; object-position: top; border-radius: 7px; border: 1px solid var(--accent); background: #fff; }
 .sum-label::before { content: "\25B8\00a0"; }
 details.has-shots[open] .sum-label::before { content: "\25BE\00a0"; }
+.all-projects + .all-projects { margin-top: 12px; }
+.exp-list { margin-bottom: 28px; }
